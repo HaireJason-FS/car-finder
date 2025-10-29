@@ -9,6 +9,36 @@
   <h1>Find your Dream Vehicle</h1>
   <p>Have you been dreaming about getting a new vehicle?</p>
   <p>Well, you're in luck.</p>
+
+  <!-- make a section and 3 subsections with a drop down in each. we will be utilizing these to filter the cars (the make, model, and year are from the car-dataset folder to pull from(using js)) -->
+
+  <section id="mainselectors">
+
+    <section id="make-selector">
+      <label for="make-dropdown">Select Make:</label>
+      <select id="make-dropdown">
+        <option value="">--Choose a Make--</option>
+        <!-- Options will be populated dynamically -->
+      </select>
+    </section>
+
+    <section id="model-selector">
+      <label for="model-dropdown">Select Model:</label>
+      <select id="model-dropdown">
+        <option value="">--Choose a Model--</option>
+        <!-- Options will be populated dynamically -->
+      </select>
+    </section>
+
+    <section id="year-selector">
+      <label for="year-dropdown">Select Year:</label>
+      <select id="year-dropdown">
+        <option value="">--Choose a Year--</option>
+        <!-- Options will be populated dynamically -->
+      </select>
+    </section>
+  </section>
+
   <script src="bundle.js"></script>
 </body>
 </html>
