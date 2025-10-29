@@ -1,3 +1,15 @@
+//we are building a used car finder program. The user will be able to search for used cars based on various criteria (such as year, make, and model). The user needs to be able to see what section they're on by the others being grayed out(displayed by a gray text color instead of blue(showing the user they have completed the section or need to complete).Once the user has completed all three sections, they will be able to see a list of used cars that match their criteria(in the console).
+
+*:root{
+  --primary-header-color: #FFFFFF;
+  --subtext-color: #D3D3D3;
+  --form-panel-bg-color: #F2F2F2;
+  --form-blue: #348FBC;
+  --form-disabled-color: #909090;
+  --selected-option-color: #212121;
+}
+
 html {
   background: gray;
 }
+
