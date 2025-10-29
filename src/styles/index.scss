@@ -1,15 +1,79 @@
-//we are building a used car finder program. The user will be able to search for used cars based on various criteria (such as year, make, and model). The user needs to be able to see what section they're on by the others being grayed out(displayed by a gray text color instead of blue(showing the user they have completed the section or need to complete).Once the user has completed all three sections, they will be able to see a list of used cars that match their criteria(in the console).
+//we are building a used car finder program. The user will be able to search for used cars based on various criteria (such as year, make, and model). The user needs to be able to see what section they're on by the others being grayed out(displayed by a gray text color instead of blue(showing the user they have completed the section or need to complete).Once the user has completed all three sections, they will be able to see a list of used cars that match their criteria(in the console). ALL STYLES WILL BE IN SCSS FORMAT.
 
-*:root{
-  --primary-header-color: #FFFFFF;
-  --subtext-color: #D3D3D3;
-  --form-panel-bg-color: #F2F2F2;
-  --form-blue: #348FBC;
-  --form-disabled-color: #909090;
-  --selected-option-color: #212121;
+//Root styles
+// Color Variables
+$primary-header-color: #FFFFFF;
+$subtext-color: #D3D3D3;
+$form-panel-bg-color: #F2F2F2;
+$form-blue: #348FBC;
+$form-disabled-color: #909090;
+$selected-option-color: #212121;
+//font Variables
+$font-family: open-sans, sans-serif;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// html {
+//   background: gray;
+// }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: $form-panel-bg-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
-
-html {
-  background: gray;
+// Main Selectors Container: each selector will be side by side horizontally with a line break between each section
+#mainselectors {
+  background-color: $form-panel-bg-color;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  gap: 20px;
+  // Individual Selector Section Styles
+  section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    // Section Header Styles
+    h2 {
+      color: $primary-header-color;
+      font-weight: $font-weight-bold;
+      margin-bottom: 10px;
+    }
+    // Subtext Styles
+    p {
+      color: $subtext-color;
+      font-weight: $font-weight-medium;
+      margin-bottom: 20px;
+    }
+    // Select Dropdown Styles
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      color: $selected-option-color;
+      &:disabled {
+        background-color: $form-disabled-color;
+        color: #fff;
+      }
+    }
+  }
 }
 
