@@ -13,11 +13,11 @@ $font-family: open-sans, sans-serif;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 
-// html {
-//   background: gray;
-// }
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: $font-family;
+  font-weight: $font-weight-medium;
+  color: $primary-header-color;
   margin: 0;
   padding: 0;
   background-color: $form-panel-bg-color;
@@ -26,54 +26,153 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-}
-// Main Selectors Container: each selector will be side by side horizontally with a line break between each section
-#mainselectors {
-  background-color: $form-panel-bg-color;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  margin-top: 50px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-  padding: 20px;
-  gap: 20px;
-  // Individual Selector Section Styles
-  section{
+  background: url("../IMG/car-finder-bg.jpg") no-repeat center center fixed;
+  // put some opacity on the background image
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); // Adjust the opacity as needed
+    z-index: -1;
+  }
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  h1{
+    margin-top: 20px;
+    font-size: 36px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  p{
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    color: $subtext-color;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  // Main Selectors Container: each selector will be side by side horizontally with a line break between each section
+  #mainselectors {
+    background-color: $form-panel-bg-color;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 50px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.404);
+    border-radius: 20px;
     padding: 20px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    // Section Header Styles
-    h2 {
-      color: $primary-header-color;
-      font-weight: $font-weight-bold;
-      margin-bottom: 10px;
+    gap: 20px;
+    // Individual Selector Section Styles
+    // the sections will be displayed with blue text color when enabled and gray text color when disabled (year is always enabled, make and model are disabled until year is selected)
+    section{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.39);
+      width: 200px;
+      color: $form-blue;
+      label {
+        font-family:$font-family;
+        font-weight: $font-weight-bold;
+        //font size needs to match h1
+        font-size: 29px;
+        margin-bottom: 5px;
+      }
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        color: $selected-option-color;
+        &:disabled {
+          background-color: $form-disabled-color;
+          opacity: 0.6;
+        }
+        :hover {
+          border-color: $form-blue;
+        }
+      }
     }
-    // Subtext Styles
-    p {
-      color: $subtext-color;
-      font-weight: $font-weight-medium;
-      margin-bottom: 20px;
-    }
-    // Select Dropdown Styles
-    select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
+  }
+  //button styles
+  .confirm-button-container {
+    margin-top: 20px;
+    .confirm-btn {
+      background-color: $form-blue;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
       border-radius: 5px;
       font-size: 16px;
-      color: $selected-option-color;
-      &:disabled {
-        background-color: $form-disabled-color;
-        color: #fff;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      &:hover {
+        //we need to ease the button when hovered
+        transition: all 0.3s ease;
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
       }
     }
   }
 }
 
+//responsive design for medium screens (such as tablets)
+@media (max-width: 810px) {
+  // Stack the selectors vertically with the opacity effect on the background image
+  body {
+    padding-bottom: 20px;
+    h1{
+      font-size: 32px;
+    }
+    p{
+      font-size: 17px;
+    }
+    #mainselectors {
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+      margin: 0 auto;
+      section {
+        width: 80%;
+        margin-bottom: 20px;
+        .dropdown-label {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+}
+//responsive design for smaller screens(such as mobile devices)
+@media (max-width: 430px) {
+  // Stack the selectors vertically with the opacity effect on the background image
+  body {
+    padding-bottom: 20px;
+    h1{
+      font-size: 28px;
+    }
+    p{
+      font-size: 16px;
+    }
+    #mainselectors {
+      flex-direction: column;
+      align-items: center;
+      width: 70%;
+      margin: 0 auto;
+      section {
+        width: 75%;
+        margin-bottom: 20px;
+        .dropdown-label {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}

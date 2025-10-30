@@ -6,39 +6,41 @@
   <title>Used Car Finder</title>
 </head>
 <body>
-  <header><img src="IMG/car-finder-bg.jpg" alt=""></header>
   <h1>Find your Dream Vehicle</h1>
   <p>Have you been dreaming about getting a new vehicle?</p>
   <p>Well, you're in luck.</p>
 
   <!-- make a section and 3 subsections with a drop down in each. we will be utilizing these to filter the cars (the make, model, and year are from the car-dataset folder to pull from(using js)) -->
 
-  <section id="mainselectors">
+  <section id="mainselectors" class="selection-filters">
 
-    <section id="make-selector">
-      <label for="make-dropdown">Select Make:</label>
-      <select id="make-dropdown">
-        <option value="">Vehicle Make</option>
-        <!-- Options will be populated dynamically -->
-      </select>
-    </section>
-
-    <section id="model-selector">
-      <label for="model-dropdown">Select Model:</label>
-      <select id="model-dropdown">
-        <option value="">Vehicle Model</option>
-        <!-- Options will be populated dynamically -->
-      </select>
-    </section>
-
-    <section id="year-selector">
-      <label for="year-dropdown">Select Year:</label>
+    <section class="selection-filters" id="year-selector">
+      <label for="year-dropdown" class="dropdown-label">Select Year:</label>
       <select id="year-dropdown">
         <option value="">Vehicle Year</option>
-        <!-- Options will be populated dynamically -->
       </select>
     </section>
+
+    <section id="make-selector" class="selection-filters">
+      <label for="make-dropdown" class="dropdown-label">Select Make:</label>
+      <select id="make-dropdown" disabled>
+        <option value="">Vehicle Make</option>
+      </select>
+    </section>
+
+    <section id="model-selector" class="selection-filters">
+      <label for="model-dropdown" class="dropdown-label">Select Model:</label>
+      <select id="model-dropdown" disabled>
+        <option value="">Vehicle Model</option>
+      </select>
+    </section>
+
   </section>
+  <!-- Confirm button (hidden until model is selected) -->
+  <div class="confirm-button-container">
+    <button id="confirm-btn" class="confirm-btn" hidden>Confirm Selection</button>
+  </div>
+
 
   <script src="bundle.js"></script>
 </body>
