@@ -122,9 +122,80 @@ body {
       }
     }
   }
+  //popup window
+  .modal {
+  display: flex;
+  //center the modal
+  ;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+
+  &[hidden] {
+    display: none;
+  }
 }
 
-//responsive design for medium screens (such as tablets)
+.modal-content {
+  background: $selected-option-color;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+
+  h2 {
+    margin-top: 0;
+    color: $form-blue;
+    text-align: center;
+  }
+
+  pre {
+    background: $selected-option-color;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+
+  .modal-btn {
+    flex: 1;
+    margin: 0 0.5rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+
+    &.close {
+      background: $form-blue;
+      color: #fff;
+
+      &:hover {
+        background: $primary-header-color;
+      }
+    }
+  }
+}
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+
 @media (max-width: 810px) {
   // Stack the selectors vertically with the opacity effect on the background image
   body {

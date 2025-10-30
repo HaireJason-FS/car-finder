@@ -87,23 +87,40 @@ modelDropdown.addEventListener('change', () => {
     confirmBtn.style.display = 'none'; // Hide confirm button
   }
 });
-//7. When the user clicks the confirm button, display the relevant car details inside the console ONLY ONCE.
+//7. When the user clicks the confirm button, display the relevant car details inside the popup window(shown as an array) with a close button to exit the popup.
 confirmBtn.addEventListener('click', () => {
   const selectedYear = parseInt(yearDropdown.value);
   const selectedMake = makeDropdown.value;
   const selectedModel = modelDropdown.value;
 
-  const selectedCar = carData.find(car =>
-    car.year === selectedYear &&
-    car.Manufacturer === selectedMake &&
-    car.model === selectedModel
+  const selectedCar = carData.find(
+    car =>
+      car.year === selectedYear &&
+      car.Manufacturer === selectedMake &&
+      car.model === selectedModel
   );
-  console.clear();
-    if (selectedCar) {
-    console.log('Selected Car Details:');
-    console.log(selectedCar);
-    }
+
+  //the modal popup is hidden by default. We need to display it when the confirm button is clicked.
+  const modal = document.getElementById('result-modal');
+  const carDetails = document.getElementById('car-details');
+  carDetails.textContent = JSON.stringify(selectedCar, null, 2);
+  modal.style.display = 'block';
 });
+
+//8. close the modal popup when the user clicks the close button.
+const closeBtn = document.getElementById('close-btn');
+closeBtn.addEventListener('click', () => {
+  const modal = document.getElementById('result-modal');
+  modal.style.display = 'none';
+});
+
+
+
+
+
+
+
+
 
 
 
